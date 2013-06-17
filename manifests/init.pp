@@ -4,8 +4,11 @@
 #
 #   include fastscripts
 class fastscripts {
+  include fastscripts::config
+
   package { 'FastScripts':
+    ensure   => installed,
     provider => 'compressed_app',
-    source   => 'http://www.red-sweater.com/fastscripts/FastScripts2.6.5.zip',
+    source   => $fastscripts::config::zip_url,
   }
 }
